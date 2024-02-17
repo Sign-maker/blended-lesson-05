@@ -1,4 +1,4 @@
-import { Container, Heading, Section } from 'components';
+import { Container, ExchangeForm, Heading, Section } from 'components';
 
 const Home = () => {
   const isError = false;
@@ -15,6 +15,7 @@ const Home = () => {
           />
         )}
       </Container>
+      <ExchangeForm />
     </Section>
   );
 };
