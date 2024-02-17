@@ -8,6 +8,7 @@ import {
   Navigate,
   RouterProvider,
 } from 'react-router-dom';
+import { setDefaultCurrency } from 'reduxState/currencySlice';
 import { getBaseCurrency } from 'reduxState/operations';
 
 const router = createBrowserRouter([
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
 
 export const App = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const success = pos => {
       const { latitude, longitude } = pos.coords;
@@ -45,6 +47,7 @@ export const App = () => {
 
     const error = err => {
       console.warn(`ERROR(${err.code}): ${err.message}`);
+      dispatch(setDefaultCurrency('USD'));
     };
 
     navigator.geolocation.getCurrentPosition(success, error, {
